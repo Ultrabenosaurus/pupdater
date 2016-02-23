@@ -47,6 +47,7 @@ class Updater:
             self.no_new = kwargs["no_new"]
 
         self.new = None
+        self.isOld()
 
     # return messages to tell users the latest version
     def Main(self, which="full"):
@@ -63,7 +64,10 @@ class Updater:
 
     # return True if there's a newer version, otherwise False
     def Simple(self):
-        if self.isOld():
+        if self.new is None:
+            self.isOld()
+
+        if self.new:
             return True
         else:
             return False
