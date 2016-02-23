@@ -1,6 +1,8 @@
 import urllib2, json
 
 #
+# Ulltrabenosaurus/Updater
+#
 # check the GitHub API for the latest tag release of a given
 # repo and compare with the given version number
 #
