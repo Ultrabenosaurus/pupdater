@@ -30,8 +30,8 @@ class Updater:
     #           use $repo$ as a placeholder for the REPO NAME in your custom message
     # no_new        string to return if no newer version found
     def __init__(self, repo, ver, **kwargs):
-        self.ver = ver
         self.repo = repo
+        self.ver = ver
 
         if not kwargs.has_key("new_full"):
             self.new_full = "Version $latest$ of $repo$ is now available, you are running $current$. Please visit https://github.com/$repo$/releases/tag/$latest$ for more information."
@@ -93,5 +93,5 @@ class Updater:
         return string.replace("$latest$", str(self.new)).replace("$current$", str(self.ver)).replace("$repo$", self.repo)
 
 # because apparently python doesn't like using classes for importable modules
-def New(ver, repo, **kwargs):
-    return Updater(ver, repo, **kwargs)
+def New(repo, ver, **kwargs):
+    return Updater(repo, ver, **kwargs)
