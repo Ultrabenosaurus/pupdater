@@ -46,11 +46,14 @@ class Updater:
         else:
             self.no_new = kwargs["no_new"]
 
-        self.new = False
+        self.new = None
 
     # return messages to tell users the latest version
     def Main(self, which="full"):
-        if self.isOld():
+        if self.new is None:
+            self.isOld()
+
+        if self.new:
             if "full" == which:
                 return self.prepString(self.new_full)
             else:
@@ -73,7 +76,7 @@ class Updater:
         opener = urllib2.build_opener()
         source = opener.open(data).read();
         latest = json.loads(source)[0]['name']
-        if latest.replace("v", "") > self.ver.replace("v", ""):
+        if str(latest).replace("v", "") > str(self.ver).replace("v", ""):
             self.new = latest
             return True
         else:
