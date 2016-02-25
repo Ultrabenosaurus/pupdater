@@ -3,7 +3,7 @@ pupdater
 
 An importable python module for checking if a GitHub repo has a new release.
 
-__Current Version: 1.1__ ([changelog](#changelog))
+__Current Version: 1.2__ ([changelog](#changelog))
 
 ## Install
 
@@ -55,6 +55,11 @@ Don't worry about tag names having a leading "v" like `v1.2` because Updater str
 * figure out module importing and properly package
 
 ## Changelog
+
+### 1.2
+
+* minimise HTTP requests by checking for existing comparison result
+* tidied things up a bit
 
 ### 1.1
 
